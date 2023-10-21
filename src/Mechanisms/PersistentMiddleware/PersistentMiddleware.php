@@ -142,6 +142,8 @@ class PersistentMiddleware
 
         if (! $route) return [];
 
+        $route->setContainer(app());
+
         $middleware = app('router')->gatherRouteMiddleware($route);
 
         return $this->filterMiddlewareByPersistentMiddleware($middleware);
